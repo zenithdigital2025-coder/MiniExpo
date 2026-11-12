@@ -40,7 +40,6 @@
         }
     </script>
     <style>
-        /* Animations personnalisées pour la carte et les transitions */
         @keyframes pulse-ring {
             0% { transform: scale(0.85); opacity: 0.9; }
             70% { transform: scale(1.7); opacity: 0; }
@@ -81,7 +80,6 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-3">
-                    <!-- Icône Balance de la justice en SVG -->
                     <div class="w-9 h-9 rounded-lg bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m-7-4h14M5 7l-2 6h4l-2-6zm14 0l-2 6h4l-2-6zM5 7h14" />
@@ -95,7 +93,7 @@
                 <div class="flex items-center gap-2 sm:gap-6 text-xs sm:text-sm font-medium">
                     <a href="#essentiel" class="text-navy-100 hover:text-amber-400 transition-colors px-2 py-1 rounded">L'Essentiel</a>
                     <a href="#simulateur" class="text-navy-100 hover:text-amber-400 transition-colors px-2 py-1 rounded">Simulateur</a>
-                    <a href="#quiz" class="bg-amber-500 hover:bg-amber-400 text-navy-900 font-semibold px-3 py-1.5 rounded-lg transition-all shadow-sm">Quiz Pratique</a>
+                    <a href="#penal" class="bg-amber-500 hover:bg-amber-400 text-navy-900 font-semibold px-3 py-1.5 rounded-lg transition-all shadow-sm">Droit Pénal</a>
                 </div>
             </div>
         </div>
@@ -132,7 +130,6 @@
                 <!-- Carte 1 : Définition -->
                 <div onclick="this.classList.toggle('flipped')" class="flip-card h-64 cursor-pointer group perspective">
                     <div class="flip-card-inner relative w-full h-full">
-                        <!-- Face avant -->
                         <div class="flip-card-front absolute inset-0 bg-white rounded-2xl p-6 border border-navy-100 shadow-sm hover:shadow-md hover:border-amber-400 transition-all flex flex-col justify-between">
                             <div>
                                 <div class="w-10 h-10 rounded-xl bg-navy-50 text-navy-800 flex items-center justify-center mb-4 font-bold">
@@ -148,7 +145,6 @@
                                 <span>→</span>
                             </div>
                         </div>
-                        <!-- Face arrière -->
                         <div class="flip-card-back absolute inset-0 bg-navy-800 text-white rounded-2xl p-6 border border-navy-700 shadow-md flex flex-col justify-between">
                             <div>
                                 <span class="text-xs uppercase tracking-wider text-amber-400 font-bold">En clair</span>
@@ -371,17 +367,12 @@
                                 </radialGradient>
                             </defs>
 
-                            <!-- Silhouette stylisée de la Belgique -->
                             <path d="M 55,125 L 135,70 L 245,45 L 365,55 L 435,105 L 455,175 L 420,255 L 385,325 L 325,315 L 275,265 L 210,245 L 145,205 L 75,175 Z" 
                                   fill="#102a43" stroke="#334e68" stroke-width="2.5" stroke-linejoin="round" />
                             
-                            <!-- Frontière linguistique schématique (ligne subtile) -->
                             <path d="M 75,152 Q 210,142 440,148" fill="none" stroke="#243b53" stroke-width="1.5" stroke-dasharray="4,4" />
 
-                            <!-- Groupe pour les lignes de trajectoire animées -->
                             <g id="map-connections"></g>
-
-                            <!-- Groupe pour les villes -->
                             <g id="map-cities"></g>
                         </svg>
                     </div>
@@ -414,78 +405,97 @@
             </div>
         </section>
 
-        <!-- SECTION 3 : MINI-QUIZ INTERACTIF -->
-        <section id="quiz" class="scroll-mt-24">
+        <!-- SECTION 3 : NOUVELLE SECTION DROIT PÉNAL -->
+        <section id="penal" class="scroll-mt-24">
             <div class="max-w-3xl mb-8">
-                <span class="text-xs font-bold uppercase tracking-widest text-amber-600">03 • Testez vos réflexes</span>
-                <h2 class="font-serif text-2xl sm:text-3xl font-bold text-navy-900 mt-1">Mini-Quiz : Quel tribunal est compétent ?</h2>
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-600">03 • La Spécificité Pénale</span>
+                <h2 class="font-serif text-2xl sm:text-3xl font-bold text-navy-900 mt-1">Et en droit pénal ? Une autre logique</h2>
                 <p class="text-sm sm:text-base text-navy-700 mt-2">
-                    Mettez en pratique ce que vous venez d'apprendre avec 4 situations concrètes de la vie quotidienne en Belgique.
+                    En matière pénale, la compétence territoriale permet de déterminer dans quel arrondissement judiciaire une infraction doit être poursuivie et jugée.
                 </p>
             </div>
 
-            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-navy-100 shadow-md max-w-4xl">
-                <!-- Barre de progression du quiz -->
-                <div class="flex items-center justify-between mb-6 pb-4 border-b border-navy-100">
-                    <div class="flex items-center gap-3">
-                        <span id="quiz-step-label" class="text-xs font-bold uppercase tracking-wider text-navy-800 bg-navy-100 px-3 py-1 rounded-full">
-                            Question 1 / 4
-                        </span>
-                        <span id="quiz-score-label" class="text-xs font-semibold text-amber-700">
-                            Score : 0 point
-                        </span>
-                    </div>
-                    <div class="w-32 sm:w-48 h-2 bg-navy-100 rounded-full overflow-hidden">
-                        <div id="quiz-progress-bar" class="h-full bg-amber-500 transition-all duration-300" style="width: 25%;"></div>
-                    </div>
+            <!-- Comparatif civil / pénal -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+                <div class="bg-white rounded-2xl p-6 border border-navy-100 shadow-sm">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-navy-600">Droit civil</span>
+                    <h3 class="font-serif text-xl font-bold text-navy-900 mt-1 mb-2">Le domicile du défendeur</h3>
+                    <p class="text-sm text-navy-700 leading-relaxed">
+                        En principe, le tribunal compétent est celui du <strong>domicile de la personne poursuivie</strong>. C'est la règle de base du procès civil.
+                    </p>
                 </div>
+                <div class="bg-navy-900 text-white rounded-2xl p-6 border border-navy-800 shadow-md">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Droit pénal</span>
+                    <h3 class="font-serif text-xl font-bold mt-1 mb-2">Le lieu de l'infraction</h3>
+                    <p class="text-sm text-navy-100 leading-relaxed">
+                        Contrairement au droit civil, le tribunal pénal compétent n'est <strong>pas déterminé uniquement par le domicile</strong> de la personne poursuivie. Le lieu de l'infraction joue un rôle essentiel.
+                    </p>
+                </div>
+            </div>
 
-                <!-- Conteneur de la question active -->
-                <div id="quiz-container" class="space-y-6">
-                    <div class="bg-navy-50/80 rounded-2xl p-5 border border-navy-100">
-                        <p id="quiz-scenario" class="text-base sm:text-lg font-medium text-navy-900 leading-relaxed">
-                            Chargement du scénario...
+            <!-- Les trois critères alternatifs -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-navy-100 shadow-md">
+                <h3 class="font-serif text-xl sm:text-2xl font-bold text-navy-900 mb-2">Trois critères alternatifs</h3>
+                <p class="text-sm text-navy-700 mb-6 leading-relaxed">
+                    En règle générale, plusieurs lieux peuvent déterminer le tribunal compétent. Ces critères sont <strong>alternatifs</strong> : chacun peut, à lui seul, fonder la compétence territoriale.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <!-- Critère 1 -->
+                    <div class="bg-navy-50/70 rounded-2xl p-5 border border-navy-100">
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <h4 class="font-bold text-navy-900 mb-1">1. Lieu de l'infraction</h4>
+                        <p class="text-sm text-navy-700 leading-relaxed">
+                            L'endroit où l'infraction a été commise. C'est le critère central en matière pénale.
                         </p>
                     </div>
-
-                    <!-- Choix de réponses -->
-                    <div id="quiz-options" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <!-- Injecté par JS -->
+                    <!-- Critère 2 -->
+                    <div class="bg-navy-50/70 rounded-2xl p-5 border border-navy-100">
+                        <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center mb-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                        </div>
+                        <h4 class="font-bold text-navy-900 mb-1">2. Lieu de résidence du prévenu</h4>
+                        <p class="text-sm text-navy-700 leading-relaxed">
+                            L'endroit où habite la personne poursuivie (le prévenu).
+                        </p>
                     </div>
-
-                    <!-- Zone de feedback immédiat -->
-                    <div id="quiz-feedback" class="hidden rounded-2xl p-5 border transition-all">
-                        <div class="flex items-start gap-3">
-                            <span id="quiz-feedback-icon" class="text-xl shrink-0"></span>
-                            <div>
-                                <h4 id="quiz-feedback-title" class="font-bold text-base mb-1"></h4>
-                                <p id="quiz-feedback-text" class="text-sm leading-relaxed"></p>
-                            </div>
+                    <!-- Critère 3 -->
+                    <div class="bg-navy-50/70 rounded-2xl p-5 border border-navy-100">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
                         </div>
-                        <div class="mt-4 flex justify-end">
-                            <button type="button" id="quiz-next-btn" onclick="nextQuestion()" class="bg-navy-900 hover:bg-navy-800 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors shadow-sm">
-                                Question suivante →
-                            </button>
-                        </div>
+                        <h4 class="font-bold text-navy-900 mb-1">3. Lieu où le prévenu a été trouvé</h4>
+                        <p class="text-sm text-navy-700 leading-relaxed">
+                            L'endroit où la personne poursuivie a été retrouvée.
+                        </p>
                     </div>
                 </div>
+            </div>
 
-                <!-- Écran de résultat final du quiz -->
-                <div id="quiz-summary" class="hidden text-center py-6 space-y-5">
-                    <div class="w-16 h-16 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mx-auto text-3xl">
-                        🏆
+            <!-- Exemple concret -->
+            <div class="mt-8 bg-amber-50 rounded-3xl p-6 sm:p-8 border-2 border-amber-400/70">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500 text-navy-900 flex items-center justify-center shrink-0 text-2xl shadow-sm">
+                        📍
                     </div>
-                    <h3 class="font-serif text-2xl sm:text-3xl font-bold text-navy-900">
-                        Quiz terminé !
-                    </h3>
-                    <p id="quiz-final-score" class="text-lg font-semibold text-amber-700"></p>
-                    <p id="quiz-final-message" class="text-sm text-navy-700 max-w-lg mx-auto leading-relaxed"></p>
-                    <div class="pt-2">
-                        <button type="button" onclick="restartQuiz()" class="bg-amber-500 hover:bg-amber-400 text-navy-900 font-bold px-6 py-3 rounded-xl transition-all shadow-sm">
-                            Recommencer le quiz ↺
-                        </button>
+                    <div>
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-amber-800">Exemple concret</span>
+                        <h4 class="font-serif text-lg sm:text-xl font-bold text-navy-900 mt-1 mb-2">Un vol commis à Tournai, un prévenu domicilié à Mons</h4>
+                        <p class="text-sm sm:text-base text-navy-800 leading-relaxed">
+                            Une personne commet un vol à <strong>Tournai</strong>, mais habite à <strong>Mons</strong>. Plusieurs juridictions peuvent donc être territorialement compétentes, notamment celle du <strong>lieu du vol</strong> ou celle du <strong>domicile du prévenu</strong>. Le ministère public pourra choisir l'un de ces ressorts.
+                        </p>
                     </div>
                 </div>
+            </div>
+
+            <!-- Synthèse pénal -->
+            <div class="mt-6 bg-navy-900 text-white rounded-3xl p-6 sm:p-8 border border-navy-800 shadow-lg">
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Pour résumer</span>
+                <p class="text-sm sm:text-base text-navy-100 leading-relaxed mt-2">
+                    La compétence territoriale en droit pénal permet de déterminer <strong class="text-white">où une affaire pénale peut être traitée</strong>, principalement en fonction du <strong class="text-amber-300">lieu de l'infraction</strong>, du <strong class="text-amber-300">domicile du prévenu</strong> ou du <strong class="text-amber-300">lieu où il a été retrouvé</strong>. Ces trois critères sont alternatifs et non hiérarchisés.
+                </p>
             </div>
         </section>
 
@@ -496,7 +506,7 @@
                     <span class="text-xs font-bold uppercase tracking-widest text-amber-400">En résumé</span>
                     <h3 class="font-serif text-xl sm:text-2xl font-bold">Ce qu'il faut retenir</h3>
                     <p class="text-sm sm:text-base text-navy-100 leading-relaxed">
-                        La compétence territoriale sert à savoir <strong>où une affaire doit être jugée</strong>, en fonction de l'endroit concerné par le problème et des règles prévues par la loi : <strong>chez le défendeur</strong> en principe, ou <strong>sur le lieu du logement</strong> en cas de bail.
+                        La compétence territoriale sert à savoir <strong>où une affaire doit être jugée</strong>, en fonction de l'endroit concerné par le problème et des règles prévues par la loi : <strong>chez le défendeur</strong> en principe au civil, ou <strong>sur le lieu du logement</strong> en cas de bail. Au pénal, le <strong>lieu de l'infraction</strong>, le <strong>domicile du prévenu</strong> et le <strong>lieu où il a été trouvé</strong> sont des critères alternatifs.
                     </p>
                 </div>
                 <a href="#simulateur" class="shrink-0 bg-amber-500 hover:bg-amber-400 text-navy-900 font-bold text-sm px-5 py-3 rounded-xl transition-colors">
@@ -512,9 +522,8 @@
         <p>Outil pédagogique de vulgarisation juridique — Droit judiciaire belge (Compétence territoriale).</p>
     </footer>
 
-    <!-- LOGIQUE JAVASCRIPT INTERACTIVE -->
+    <!-- LOGIQUE JAVASCRIPT INTERACTIVE (simulateur uniquement) -->
     <script>
-        // 1. Coordonnées schématiques des villes belges sur le SVG (500x360)
         const CITIES = {
             "Gand":      { x: 155, y: 100, region: "Flandre-Orientale" },
             "Anvers":    { x: 235, y: 72,  region: "Province d'Anvers" },
@@ -526,15 +535,13 @@
             "Liège":     { x: 382, y: 168, region: "Province de Liège" }
         };
 
-        // État courant du simulateur
         let state = {
-            disputeType: 'general', // 'general' ou 'housing'
+            disputeType: 'general',
             plaintiff: 'Bruxelles',
             defendant: 'Liège',
             property: 'Tournai'
         };
 
-        // Changer le type de litige (Général vs Logement)
         function setDisputeType(type) {
             state.disputeType = type;
             const btnGeneral = document.getElementById('btn-type-general');
@@ -556,7 +563,6 @@
             updateSimulation();
         }
 
-        // Charger un scénario pré-rempli
         function loadPreset(type, plaintiff, defendant, property) {
             document.getElementById('select-plaintiff').value = plaintiff;
             document.getElementById('select-defendant').value = defendant;
@@ -564,7 +570,6 @@
             setDisputeType(type);
         }
 
-        // Mettre à jour le calcul juridique, le texte explicatif et la carte SVG
         function updateSimulation() {
             state.plaintiff = document.getElementById('select-plaintiff').value;
             state.defendant = document.getElementById('select-defendant').value;
@@ -599,7 +604,6 @@
                 warning = `🏠 <strong>Pourquoi cette exception ?</strong> Le juge de paix doit être proche du bien immobilier concerné (par exemple pour constater des dégâts ou évaluer le logement).`;
             }
 
-            // Mise à jour de l'encadré Verdict
             const verdictCard = document.getElementById('verdict-card');
             const verdictBadge = document.getElementById('verdict-badge');
             const verdictIcon = document.getElementById('verdict-icon');
@@ -624,7 +628,6 @@
             renderMap(competentCity);
         }
 
-        // Dessiner les villes et trajectoires sur le SVG
         function renderMap(competentCity) {
             const citiesGroup = document.getElementById('map-cities');
             const connGroup = document.getElementById('map-connections');
@@ -634,7 +637,6 @@
             const pCoord = CITIES[state.plaintiff];
             const tCoord = CITIES[competentCity];
 
-            // Tracer une flèche animée du demandeur vers le tribunal compétent (si villes différentes)
             if (state.plaintiff !== competentCity) {
                 const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
                 const midX = (pCoord.x + tCoord.x) / 2;
@@ -647,7 +649,6 @@
                 connGroup.appendChild(path);
             }
 
-            // Dessiner chaque ville
             Object.entries(CITIES).forEach(([name, coords]) => {
                 const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
                 const isCourt = (name === competentCity);
@@ -655,7 +656,6 @@
                 const isDefendant = (name === state.defendant);
                 const isProperty = (state.disputeType === 'housing' && name === state.property);
 
-                // Halo pulsant pour le tribunal compétent
                 if (isCourt) {
                     const glow = document.createElementNS("http://www.w3.org/2000/svg", "circle");
                     glow.setAttribute("cx", coords.x);
@@ -675,7 +675,6 @@
                     g.appendChild(pulse);
                 }
 
-                // Point central de la ville
                 const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
                 circle.setAttribute("cx", coords.x);
                 circle.setAttribute("cy", coords.y);
@@ -692,7 +691,6 @@
                 circle.setAttribute("stroke-width", "2");
                 g.appendChild(circle);
 
-                // Nom de la ville
                 const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
                 text.setAttribute("x", coords.x);
                 text.setAttribute("y", coords.y - 12);
@@ -703,7 +701,6 @@
                 text.textContent = name;
                 g.appendChild(text);
 
-                // Étiquettes de rôle sous la ville
                 let roles = [];
                 if (isPlaintiff) roles.push("Demandeur");
                 if (isDefendant) roles.push("Défendeur");
@@ -725,169 +722,8 @@
             });
         }
 
-        // 2. LOGIQUE DU MINI-QUIZ INTERACTIF
-        const QUIZ_DATA = [
-            {
-                scenario: "Marc habite à Liège. Il prête 2 000 € à son ami Julie qui habite à Namur. Julie refuse de rembourser. Marc décide d'aller en justice. Dans quelle ville doit-il saisir le tribunal ?",
-                options: [
-                    "À Liège, car c'est là qu'habite Marc (le demandeur)",
-                    "À Namur, car c'est le domicile de Julie (la défenderesse)",
-                    "À Bruxelles, car c'est la capitale de la Belgique",
-                    "Marc peut choisir librement entre Liège et Namur"
-                ],
-                correctIndex: 1,
-                explanation: "Exact ! En Belgique, la règle générale impose au demandeur (Marc) de s'adresser au tribunal du lieu où habite la personne qu'il poursuit (Julie, à Namur)."
-            },
-            {
-                scenario: "Un propriétaire habitant à Bruxelles loue un studio à un étudiant originaire d'Anvers. Le studio est situé à Tournai. Un conflit éclate sur des dégâts locatifs. Quel juge est compétent ?",
-                options: [
-                    "Le Juge de paix de Bruxelles (domicile du propriétaire)",
-                    "Le Juge de paix d'Anvers (domicile de l'étudiant)",
-                    "Le Juge de paix de Tournai (lieu où se trouve le logement)",
-                    "N'importe quel juge de paix en Wallonie"
-                ],
-                correctIndex: 2,
-                explanation: "Bravo ! C'est l'exception prévue par la loi : pour un problème de logement (bail), c'est toujours le juge de paix de l'endroit où se situe le bien loué (Tournai) qui est compétent."
-            },
-            {
-                scenario: "Pourquoi la loi belge impose-t-elle des règles strictes de compétence territoriale plutôt que de laisser chacun choisir son tribunal ?",
-                options: [
-                    "Pour éviter que chacun choisisse simplement le tribunal qu'il préfère ou qui l'arrange",
-                    "Parce que tous les tribunaux belges ne jugent pas les mêmes lois",
-                    "Pour obliger les citoyens à engager un avocat dans chaque province",
-                    "Uniquement pour désengorger les tribunaux de Bruxelles"
-                ],
-                correctIndex: 0,
-                explanation: "Tout à fait ! Ces règles garantissent l'équité : elles empêchent un plaignant de choisir arbitrairement un tribunal éloigné pour décourager son adversaire ou chercher un juge plus favorable."
-            },
-            {
-                scenario: "Une entreprise basée à Charleroi commande des marchandises à un fournisseur situé à Mons. Le fournisseur ne livre jamais et l'entreprise de Charleroi l'attaque en justice. Où l'affaire sera-t-elle jugée ?",
-                options: [
-                    "À Charleroi (ville de l'entreprise qui attaque)",
-                    "À Mons (ville du fournisseur poursuivi en justice)",
-                    "À Namur (capitale de la Wallonie)",
-                    "Dans la ville la plus proche de l'autoroute"
-                ],
-                correctIndex: 1,
-                explanation: "Parfait ! Comme il ne s'agit pas d'un bail d'habitation mais d'un litige contractuel classique, on applique la règle générale : direction le tribunal du domicile/siège du défendeur, donc Mons."
-            }
-        ];
-
-        let currentQuestion = 0;
-        let score = 0;
-        let answeredCurrent = false;
-
-        function renderQuizQuestion() {
-            answeredCurrent = false;
-            const q = QUIZ_DATA[currentQuestion];
-
-            document.getElementById('quiz-step-label').textContent = `Question ${currentQuestion + 1} / ${QUIZ_DATA.length}`;
-            document.getElementById('quiz-score-label').textContent = `Score : ${score} point${score > 1 ? 's' : ''}`;
-            document.getElementById('quiz-progress-bar').style.width = `${((currentQuestion + 1) / QUIZ_DATA.length) * 100}%`;
-            document.getElementById('quiz-scenario').textContent = q.scenario;
-
-            const optionsContainer = document.getElementById('quiz-options');
-            optionsContainer.innerHTML = '';
-
-            q.options.forEach((optText, idx) => {
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = "text-left p-4 rounded-xl border-2 border-navy-200 bg-white hover:border-amber-400 hover:bg-amber-50/40 text-sm font-medium text-navy-900 transition-all flex items-start gap-3";
-                btn.innerHTML = `
-                    <span class="w-6 h-6 rounded-full bg-navy-100 text-navy-800 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">${String.fromCharCode(65 + idx)}</span>
-                    <span>${optText}</span>
-                `;
-                btn.onclick = () => handleQuizAnswer(idx, btn);
-                optionsContainer.appendChild(btn);
-            });
-
-            document.getElementById('quiz-feedback').classList.add('hidden');
-        }
-
-        function handleQuizAnswer(selectedIndex, clickedBtn) {
-            if (answeredCurrent) return;
-            answeredCurrent = true;
-
-            const q = QUIZ_DATA[currentQuestion];
-            const isCorrect = (selectedIndex === q.correctIndex);
-            const allButtons = document.getElementById('quiz-options').querySelectorAll('button');
-
-            allButtons.forEach((btn, idx) => {
-                btn.disabled = true;
-                btn.classList.remove('hover:border-amber-400', 'hover:bg-amber-50/40');
-                if (idx === q.correctIndex) {
-                    btn.className = "text-left p-4 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-sm font-semibold text-emerald-950 flex items-start gap-3";
-                } else if (idx === selectedIndex && !isCorrect) {
-                    btn.className = "text-left p-4 rounded-xl border-2 border-rose-400 bg-rose-50 text-sm font-medium text-rose-950 flex items-start gap-3 opacity-90";
-                } else {
-                    btn.classList.add('opacity-50');
-                }
-            });
-
-            if (isCorrect) {
-                score++;
-                document.getElementById('quiz-score-label').textContent = `Score : ${score} point${score > 1 ? 's' : ''}`;
-            }
-
-            const feedbackBox = document.getElementById('quiz-feedback');
-            const feedbackIcon = document.getElementById('quiz-feedback-icon');
-            const feedbackTitle = document.getElementById('quiz-feedback-title');
-            const feedbackText = document.getElementById('quiz-feedback-text');
-            const nextBtn = document.getElementById('quiz-next-btn');
-
-            feedbackBox.classList.remove('hidden');
-            if (isCorrect) {
-                feedbackBox.className = "rounded-2xl p-5 border border-emerald-300 bg-emerald-50/80 text-emerald-950 transition-all";
-                feedbackIcon.textContent = "✅";
-                feedbackTitle.textContent = "Bonne réponse !";
-            } else {
-                feedbackBox.className = "rounded-2xl p-5 border border-rose-300 bg-rose-50/80 text-rose-950 transition-all";
-                feedbackIcon.textContent = "❌";
-                feedbackTitle.textContent = "Pas tout à fait...";
-            }
-
-            feedbackText.textContent = q.explanation;
-            nextBtn.textContent = (currentQuestion < QUIZ_DATA.length - 1) ? "Question suivante →" : "Voir mon résultat final 🏆";
-        }
-
-        function nextQuestion() {
-            if (currentQuestion < QUIZ_DATA.length - 1) {
-                currentQuestion++;
-                renderQuizQuestion();
-            } else {
-                showQuizSummary();
-            }
-        }
-
-        function showQuizSummary() {
-            document.getElementById('quiz-container').classList.add('hidden');
-            const summary = document.getElementById('quiz-summary');
-            summary.classList.remove('hidden');
-
-            document.getElementById('quiz-final-score').textContent = `Vous avez obtenu ${score} sur ${QUIZ_DATA.length} !`;
-            let msg = "";
-            if (score === QUIZ_DATA.length) {
-                msg = "Félicitations ! Vous maîtrisez parfaitement la règle générale du domicile du défendeur ainsi que l'exception liée au logement en Belgique.";
-            } else if (score >= 2) {
-                msg = "Très bon résultat ! Vous avez saisi l'essentiel du fonctionnement de la compétence territoriale. N'hésitez pas à rejouer avec le simulateur pour ancrer les automatismes.";
-            } else {
-                msg = "C'est un bon début ! Relisez les 4 cartes mémo en haut de page et testez quelques scénarios dans le simulateur avant de retenter le quiz.";
-            }
-            document.getElementById('quiz-final-message').textContent = msg;
-        }
-
-        function restartQuiz() {
-            currentQuestion = 0;
-            score = 0;
-            document.getElementById('quiz-summary').classList.add('hidden');
-            document.getElementById('quiz-container').classList.remove('hidden');
-            renderQuizQuestion();
-        }
-
-        // Initialisation au chargement de la page
         window.addEventListener('DOMContentLoaded', () => {
             updateSimulation();
-            renderQuizQuestion();
         });
     </script>
 </body>
